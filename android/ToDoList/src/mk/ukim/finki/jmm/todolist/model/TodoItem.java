@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class TodoItem {
 
+	private Long id;
+
 	private String name;
 	private boolean done;
 	private Date dueDate;
@@ -16,6 +18,14 @@ public class TodoItem {
 		this.name = name;
 		this.done = done;
 		this.dueDate = dueDate;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

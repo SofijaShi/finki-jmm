@@ -1,0 +1,5 @@
+Listening for transport dt_socket at address: 8000
+09:15:42,898 INFO  ~ Starting C:\android-workspace\finki-jmm\services\todo-services
+09:15:42,905 INFO  ~ Module crud is available (C:\java\play-1.2.4\modules\crud)
+09:15:43,760 WARN  ~ You're running Play! in DEV mode
+09:15:43,893 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...

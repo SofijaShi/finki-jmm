@@ -94,6 +94,17 @@ public class TodoItemsAdapter extends BaseAdapter implements
 		items.add(item);
 		notifyDataSetChanged();
 	}
+	
+	public void addAll(List<TodoItem> items) {
+		this.items.addAll(items);
+		notifyDataSetChanged();
+	}
+	
+	public void clear(){
+		items.clear();
+		notifyDataSetInvalidated();
+	}
+	
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
