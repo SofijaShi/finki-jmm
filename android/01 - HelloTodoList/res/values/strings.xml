@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HelloTodoList</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="taskText">Enter task</string>
+    <string name="addTask">Add</string>
+    <string name="addItemContentDescription">TODO</string>
+    <string name="addItemHint">TODO</string>
+    <string name="withFragments">Example With Fragments</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">TodoListWithFragments</string>
+    <string name="addItemContentDescription">Enter Task Description</string>
+    <string name="addItemHint">Enter Task</string>
+
+</resources>
