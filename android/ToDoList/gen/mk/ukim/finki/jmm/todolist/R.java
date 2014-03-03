@@ -24,25 +24,28 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
-        public static final int addTodoItem=0x7f080005;
-        public static final int button1=0x7f080001;
-        public static final int button2=0x7f080002;
-        public static final int detailsText=0x7f080007;
-        public static final int textView1=0x7f080000;
-        public static final int todoDate=0x7f080009;
-        public static final int todoDueDate=0x7f080004;
-        public static final int todoItem=0x7f080008;
-        public static final int todoItems=0x7f080006;
-        public static final int todoName=0x7f080003;
+        public static final int action_settings=0x7f08000c;
+        public static final int addTodoItem=0x7f080007;
+        public static final int button1=0x7f080003;
+        public static final int button2=0x7f080004;
+        public static final int detailsText=0x7f080009;
+        public static final int inputforintent=0x7f080000;
+        public static final int startintent=0x7f080001;
+        public static final int textView1=0x7f080002;
+        public static final int todoDate=0x7f08000b;
+        public static final int todoDueDate=0x7f080006;
+        public static final int todoItem=0x7f08000a;
+        public static final int todoItems=0x7f080008;
+        public static final int todoName=0x7f080005;
     }
     public static final class layout {
-        public static final int activity_intents=0x7f030000;
-        public static final int activity_rssfeed=0x7f030001;
-        public static final int activity_todo_list=0x7f030002;
-        public static final int fragment_rssitem_detail=0x7f030003;
-        public static final int fragment_rsslist_overview=0x7f030004;
-        public static final int item_todo=0x7f030005;
+        public static final int activity_base=0x7f030000;
+        public static final int activity_intents=0x7f030001;
+        public static final int activity_rssfeed=0x7f030002;
+        public static final int activity_todo_list=0x7f030003;
+        public static final int fragment_rssitem_detail=0x7f030004;
+        public static final int fragment_rsslist_overview=0x7f030005;
+        public static final int item_todo=0x7f030006;
     }
     public static final class menu {
         public static final int todo_list=0x7f070000;
