@@ -17,7 +17,7 @@ public class Downloader {
 	}
 
 	/**
-	 * 
+	 * 10.0.2.2
 	 * @param url
 	 * @param handler
 	 * @throws Exception

@@ -7,6 +7,6 @@
     <string name="addTodoItem">Add Todo Item</string>
     <string name="download_title">Downloading</string>
     <string name="download_description">Downloading ToDo items</string>
-    <string name="all_todo_items">http://localhost:9000/todocontroller/all</string>
+    <string name="all_todo_items">http://10.0.2.2:9000/todocontroller/all</string>
 
 </resources>

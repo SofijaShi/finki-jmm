@@ -9,6 +9,11 @@ import play.mvc.results.RenderJson;
 public class ToDoController extends Controller {
 
 	public static void all(String format) {
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {
+
+		}
 		if (format == null) {
 
 			renderJSON(TodoItem.findAll());
@@ -23,11 +28,12 @@ public class ToDoController extends Controller {
 		renderXml(TodoItem.findAll());
 	}
 
-	public static void add(String name, int done, long date) {
+	public static void add(String name, int done, Date date) {
 		TodoItem item = new TodoItem();
+		System.out.println("adding...");
 		item.name = name;
 		item.done = done == 1;
-		item.dueDate = new Date(date);
+		item.dueDate = date;
 		item.save();
 		renderJSON(item);
 	}
