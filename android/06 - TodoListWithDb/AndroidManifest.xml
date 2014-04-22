@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mk.ukim.finki.jmm.todowithwebloading"
+    package="mk.ukim.finki.jmm.todolistwithdb"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,15 +8,19 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <provider
+            android:name="mk.ukim.finki.jmm.todolistwithdb.contentprovider.ToDoContentProvider"
+            android:authorities="mk.ukim.finki.jmm.todolistwithdb.contentprovider"
+            android:exported="true" >
+        </provider>
+
         <activity
-            android:name="mk.ukim.finki.jmm.todowithwebloading.MainActivity"
+            android:name="mk.ukim.finki.jmm.todolistwithdb.TodoList"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

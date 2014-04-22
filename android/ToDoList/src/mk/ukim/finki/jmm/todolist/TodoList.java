@@ -43,6 +43,7 @@ public class TodoList extends Activity {
 	private ListView mTodoItemsList;
 	private ToDoDao mDao;
 	private TodoItemsAdapter mAdapter;
+	private BroadcastReceiver downloadReceiver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,11 @@ public class TodoList extends Activity {
 	protected void onResume() {
 		super.onResume();
 		mDao = new ToDoDao(this, DEFAULT_LANG);
+		if (downloadReceiver != null) {
+			IntentFilter filter = new IntentFilter(
+					DownloadTask.ITEMS_DOWNLOADED_ACTION);
+			registerReceiver(downloadReceiver, filter);
+		}
 		mDao.open();
 		loadData();
 	}
@@ -63,6 +69,7 @@ public class TodoList extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+		unregisterReceiver(downloadReceiver);
 		mDao.close();
 	}
 
@@ -124,7 +131,8 @@ public class TodoList extends Activity {
 				createDialog();
 				IntentFilter filter = new IntentFilter(
 						DownloadTask.ITEMS_DOWNLOADED_ACTION);
-				registerReceiver(new OnDownloadRefreshReceiver(), filter);
+				downloadReceiver = new OnDownloadRefreshReceiver();
+				registerReceiver(downloadReceiver, filter);
 				startService(new Intent(this, DownloadService.class));
 				return true;
 			}
@@ -222,6 +230,7 @@ public class TodoList extends Activity {
 			}
 
 			TodoList.this.unregisterReceiver(this);
+			downloadReceiver = null;
 
 		}
 	}

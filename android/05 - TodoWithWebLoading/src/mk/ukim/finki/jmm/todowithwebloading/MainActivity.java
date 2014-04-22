@@ -113,6 +113,7 @@ public class MainActivity extends Activity {
 	public List<TodoItem> parseJson(String content) throws JSONException {
 		List<TodoItem> items = new ArrayList<TodoItem>();
 
+		
 		JSONArray jsonItems = new JSONArray(content);
 
 		for (int i = 0; i < jsonItems.length(); i++) {
