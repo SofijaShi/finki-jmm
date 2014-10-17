@@ -31,7 +31,7 @@
         android:layout_below="@id/explicitIntent"
         android:onClick="shareIntent"
         android:text="Share" />
-    
+
     <Button
         android:id="@+id/finki"
         android:layout_width="wrap_content"
@@ -49,5 +49,12 @@
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/data"
+        android:onClick="selectPicture"
+        android:text="Select picture" />
 
 </RelativeLayout>
