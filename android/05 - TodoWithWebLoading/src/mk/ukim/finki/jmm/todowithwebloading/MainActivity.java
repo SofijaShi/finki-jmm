@@ -112,17 +112,17 @@ public class MainActivity extends Activity {
 
 	public List<TodoItem> parseJson(String content) throws JSONException {
 		List<TodoItem> items = new ArrayList<TodoItem>();
+		if (content != null) {
+			JSONArray jsonItems = new JSONArray(content);
 
-		
-		JSONArray jsonItems = new JSONArray(content);
-
-		for (int i = 0; i < jsonItems.length(); i++) {
-			JSONObject jObj = (JSONObject) jsonItems.get(i);
-			TodoItem item = new TodoItem();
-			item.setName(jObj.getString("name"));
-			item.setId(jObj.getLong("id"));
-			item.setDone(jObj.getBoolean("done"));
-			items.add(item);
+			for (int i = 0; i < jsonItems.length(); i++) {
+				JSONObject jObj = (JSONObject) jsonItems.get(i);
+				TodoItem item = new TodoItem();
+				item.setName(jObj.getString("name"));
+				item.setId(jObj.getLong("id"));
+				item.setDone(jObj.getBoolean("done"));
+				items.add(item);
+			}
 		}
 		return items;
 	}
@@ -205,12 +205,13 @@ public class MainActivity extends Activity {
 		HttpGet httpGet = new HttpGet(url);
 
 		httpResponse = httpClient.execute(httpGet);
-		HttpEntity httpEntity = httpResponse.getEntity();
-		is = httpEntity.getContent();
+		if (httpResponse != null) {
+			HttpEntity httpEntity = httpResponse.getEntity();
+			if (httpResponse.getStatusLine().getStatusCode() == 200) {
+				is = httpEntity.getContent();
 
-		if (httpResponse != null
-				&& httpResponse.getStatusLine().getStatusCode() == 200) {
-			return is;
+				return is;
+			}
 		}
 		return null;
 
@@ -237,6 +238,12 @@ public class MainActivity extends Activity {
 		}
 
 		@Override
+		protected void onProgressUpdate(Void... values) {
+			// TODO Auto-generated method stub
+			super.onProgressUpdate(values);
+		}
+
+		@Override
 		protected List<TodoItem> doInBackground(String... params) {
 			List<TodoItem> result = null;
 			if (params.length == 1) {
@@ -250,7 +257,9 @@ public class MainActivity extends Activity {
 		protected void onPostExecute(List<TodoItem> result) {
 			super.onPostExecute(result);
 			mAdapter.addAll(result);
-			loadingDialog.dismiss();
+			if (loadingDialog != null && loadingDialog.isShowing()) {
+				loadingDialog.dismiss();
+			}
 
 			Editor editor = PreferenceManager.getDefaultSharedPreferences(
 					MainActivity.this).edit();

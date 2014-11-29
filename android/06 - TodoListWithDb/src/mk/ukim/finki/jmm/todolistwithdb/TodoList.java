@@ -43,6 +43,7 @@ public class TodoList extends Activity implements LoaderCallbacks<Cursor> {
 		item.setDueDate(new Date());
 		item.setName("Task : " + item.getDueDate().getTime() / 1000000);
 		dao.insert(item);
+		loadData();
 	}
 
 	@Override

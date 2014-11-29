@@ -60,9 +60,10 @@ public class TodoItemsAdapter extends BaseAdapter implements
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		TodoHoler holder = null;
 
 		TodoItem item = items.get(position);
-		TodoHoler holder = null;
+
 		if (convertView == null) {
 			holder = new TodoHoler();
 			holder.itemLayout = (RelativeLayout) inflater.inflate(
@@ -80,14 +81,12 @@ public class TodoItemsAdapter extends BaseAdapter implements
 		holder = (TodoHoler) convertView.getTag();
 
 		holder.name.setText(item.getName());
-		if (item.getDueDate() != null) {
-			holder.dueDate.setText(item.getDueDate().toString());
-		}
+		holder.dueDate.setText("" + item.isDone());
 
 		if (item.isDone()) {
 			holder.itemLayout.setBackgroundColor(Color.GREEN);
 		} else {
-			holder.itemLayout.setBackgroundColor(Color.RED);
+			holder.itemLayout.setBackgroundColor(Color.WHITE);
 		}
 		return convertView;
 	}
@@ -98,8 +97,10 @@ public class TodoItemsAdapter extends BaseAdapter implements
 	}
 
 	public void addAll(List<TodoItem> items) {
-		this.items.addAll(items);
-		notifyDataSetChanged();
+		if (items != null) {
+			this.items.addAll(items);
+			notifyDataSetChanged();
+		}
 	}
 
 	public void clear() {
